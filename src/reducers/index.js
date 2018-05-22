@@ -12,7 +12,7 @@ const initialState = {
 function counter(state = initialState, action) {
     const { counters } = state;
 
-    switch(action.type) {
+    switch (action.type) {
         case types.CREATE:
             return {
                 counters: [
@@ -23,11 +23,12 @@ function counter(state = initialState, action) {
                     }
                 ]
             };
+
         case types.REMOVE:
             return {
                 counters: counters.slice(0, counters.length - 1)
             };
-        
+
         case types.INCREMENT:
             return {
                 counters: [
@@ -41,29 +42,29 @@ function counter(state = initialState, action) {
             };
 
         case types.DECREMENT:
-        return {
-            counters: [
-                ...counters.slice(0, action.index),
-                {
-                    ...counters[action.index],
-                    number: counters[action.index].number - 1
-                },
-                ...counters.slice(action.index + 1, counters.length)
-            ]
-        };
+            return {
+                counters: [
+                    ...counters.slice(0, action.index),
+                    {
+                        ...counters[action.index],
+                        number: counters[action.index].number - 1
+                    },
+                    ...counters.slice(action.index + 1, counters.length)
+                ]
+            };
 
-        case types.SET_COLOR    :
-        return {
-            counters: [
-                ...counters.slice(0, action.index),
-                {
-                    ...counters[action.index],
-                    color: action.color
-                },
-                ...counters.slice(action.index + 1, counter.length)
-            ]
-        };
-        
+        case types.SET_COLOR:
+            return {
+                counters: [
+                    ...counters.slice(0, action.index),
+                    {
+                        ...counters[action.index],
+                        color: action.color
+                    },
+                    ...counters.slice(action.index + 1, counter.length)
+                ]
+            };
+
         default:
             return state;
     }

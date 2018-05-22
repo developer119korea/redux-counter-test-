@@ -11,12 +11,12 @@ class App extends Component {
     render() {
         const { onCreate, onRemove } = this.props;
         return (
-            <div className = "App">
+            <div className="App">
                 <Buttons
                     onCreate={onCreate}
                     onRemove={onRemove}
                 />
-                <CounterListContainer/>
+                <CounterListContainer />
             </div>
         );
     }
